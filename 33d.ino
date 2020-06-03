@@ -7,12 +7,14 @@ int led = D6;
 void setup() {
     pinMode(led,OUTPUT); // Our LED pin is output (lighting up the LED)
 
-    //Particle.subscribe("Deakin_RIOT_SIT210_Photon_Buddy", myHandler);
     Particle.subscribe("Deakin_RIOT_SIT210_Argon_Buddy", myHandler);
 }
 
 void loop() {
-
+    Particle.publish("Deakin_RIOT_SIT210_Argon_Buddy", "wave");
+    delay(20000)
+    Particle.publish("Deakin_RIOT_SIT210_Argon_Buddy", "pat");
+    delay(30000)
 }
 
 void myHandler(const char *event, const char *data)
